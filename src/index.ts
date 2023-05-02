@@ -1,7 +1,7 @@
 import * as FrontEnd from "./classes/Worker";
 import persons from "./data/person";
 import { printObject, genericFunction, genericFunctionArrow } from "../generics/generics";
-import { Worker, Machine } from "./interfaces/Worker";
+import { Worker, Machine } from "./interfaces";
 
 const worker1 = new FrontEnd.Worker( 'Alex', 'Alex Top', 43, 3687, 'IT');
 
