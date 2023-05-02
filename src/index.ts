@@ -1,6 +1,7 @@
 import * as FrontEnd from "./classes/Worker";
 import persons from "./data/person";
 import { printObject, genericFunction, genericFunctionArrow } from "../generics/generics";
+import { Worker, Machine } from "./interfaces/Worker";
 
 const worker1 = new FrontEnd.Worker( 'Alex', 'Alex Top', 43, 3687, 'IT');
 
@@ -20,3 +21,11 @@ console.log(genericFunction( 'My first generic' ).toUpperCase() );
 console.log(genericFunctionArrow( 1234 ).toFixed(2) );
 console.log(genericFunctionArrow( new Date() ).toLocaleDateString() );
 console.log(genericFunctionArrow( 'My first generic' ).toUpperCase() );
+
+const robotWorker = {
+    name: 'T-800',
+    workplace: 'battlefield',
+    levelSecurity: 100
+}
+
+console.log( genericFunctionArrow<Worker>(robotWorker).name );
