@@ -2,6 +2,7 @@ import * as FrontEnd from "./classes/Worker";
 import persons from "./data/person";
 import { printObject, genericFunction, genericFunctionArrow } from "../generics/generics";
 import { Worker, Machine } from "./interfaces";
+import { getPokemon } from "../generics/get-pokemon";
 
 const worker1 = new FrontEnd.Worker( 'Alex', 'Alex Top', 43, 3687, 'IT');
 
@@ -29,3 +30,8 @@ const robotWorker = {
 }
 
 console.log( genericFunctionArrow<Worker>(robotWorker).name );
+
+getPokemon( 4 )
+    .then( resp => console.log( resp ))
+    .catch( error => console.log( error) )
+    .finally( () => console.log( 'Finally') );
