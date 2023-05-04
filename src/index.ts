@@ -3,6 +3,7 @@ import persons from "./data/person";
 import { printObject, genericFunction, genericFunctionArrow } from "../generics/generics";
 import { Worker, Machine } from "./interfaces";
 import { getPokemon } from "../generics/get-pokemon";
+import { Animal } from "./decorators/animal";
 
 const worker1 = new FrontEnd.Worker( 'Alex', 'Alex Top', 43, 3687, 'IT');
 
@@ -35,3 +36,9 @@ getPokemon( 4 )
     .then( resp => console.log( resp ))
     .catch( error => console.log( error) )
     .finally( () => console.log( 'Finally') );
+
+
+const Tiger = new Animal('Tiger');
+
+
+console.log(Tiger);
