@@ -16,7 +16,7 @@ const blockPrototype = function( contructor: Function) {
     Object.seal( contructor.prototype );
 }
 
-function CheckValidAnimalId() {
+function CheckValidAnimalId(): Function {
     return function( target: any, propertyKey: string, descriptor: PropertyDescriptor ) {
         const originalMethod = descriptor.value;
         descriptor.value = ( id: number ) => {
@@ -30,9 +30,29 @@ function CheckValidAnimalId() {
     }
 }
 
+function readOnly( isWritable: boolean = true): Function {
+    return function( target: any, propertyKey: string ) {
+         const descriptor: PropertyDescriptor = {
+            get(){
+                console.log(this);
+                return 'Animal';
+            },
+            set( this, val ){
+                Object.defineProperty( this, propertyKey, {
+                    value:val,
+                    writable: !isWritable,
+                    enumerable: false
+                })
+            }
+         }
+    }
+}
+
 @blockPrototype
 @printToConsoleConditional(true)
 export class Animal {
+
+    @readOnly()
     public publicApi: string = 'https://animalsapi.org';
 
     constructor(
