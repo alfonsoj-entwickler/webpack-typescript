@@ -39,6 +39,5 @@ getPokemon( 4 )
 
 
 const Tiger = new Animal('Tiger');
-
-
 console.log(Tiger);
+Tiger.saveAnimalToDB(5000);
